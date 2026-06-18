@@ -1,357 +1,140 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>French Kiss - C'est l'heure de Tarte</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Special+Elite&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root{
-  --brass:#d8af5a;
-  --brass-deep:#9a7223;
-  --cream:#f4e8c8;
-  --rose:#e8557d;
-  --board:#1c1712;
-  --ink:#0d0a07;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;}
-body{
-  font-family:'Playfair Display',Georgia,serif;
-  color:var(--cream);
-  background:#1a120c;
-  overflow:hidden;
-}
-
-/* ===== Stage: keeps the 3:2 artwork aspect, scales to viewport ===== */
-.stage{
-  position:fixed;
-  inset:0;
-  /* The reference artwork. Save your image into the repo as french-kiss-bg.png */
-  background:
-    url("french-kiss-bg.png") center center / cover no-repeat,
-    /* fallback gradient scene if the image is missing */
-    linear-gradient(180deg,#23314a 0%,#5a3a4a 45%,#7a4a35 75%,#9c6038 100%);
-}
-
-/* warm vignette to seat the overlays into the scene */
-.stage::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(circle at 50% 46%,transparent 30%,rgba(20,8,3,.45) 100%);
-}
-
-/* All overlay layers share this coordinate space (percent based on the image) */
-.layer{position:absolute;pointer-events:none;}
-
-/* ---------- Airship drifting across the sky ---------- */
-.airship{
-  top:9%; left:-26%;
-  width:24%;
-  animation:drift 46s linear infinite;
-  filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
-}
-.airship svg{width:100%;height:auto;display:block;}
-@keyframes drift{
-  0%{transform:translateX(0) translateY(0);}
-  50%{transform:translateX(330%) translateY(-1.2%);}
-  100%{transform:translateX(660%) translateY(0);}
-}
-
-/* ---------- Steam puffs (coffee cup + roof pipe) ---------- */
-.steam{
-  width:42px;height:120px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.45),transparent 70%);
-  filter:blur(10px);opacity:0;
-  animation:steam 7s ease-in infinite;
-}
-.steam.cup{bottom:14%;left:78.5%;}
-.steam.pipe{top:14%;left:90%;width:34px;height:90px;animation-duration:9s;}
-.steam.d1{animation-delay:0s;}
-.steam.d2{animation-delay:3.2s;}
-@keyframes steam{
-  0%{transform:translateY(0) scale(.6);opacity:0;}
-  25%{opacity:.55;}
-  100%{transform:translateY(-220px) scale(1.7);opacity:0;}
-}
-
-/* ---------- Gas lamp + sign flicker ---------- */
-.glow{
-  border-radius:50%;
-  mix-blend-mode:screen;
-  animation:flicker 3.4s ease-in-out infinite;
-}
-.glow.lamp{
-  top:48.5%;left:11.5%;width:70px;height:70px;
-  background:radial-gradient(circle,rgba(255,210,120,.85),transparent 65%);
-  animation-duration:2.6s;
-}
-.glow.window{
-  top:50%;left:70%;width:130px;height:120px;
-  background:radial-gradient(circle,rgba(255,190,90,.4),transparent 70%);
-  animation-duration:5s;
-}
-@keyframes flicker{
-  0%,100%{opacity:.85;}
-  42%{opacity:.6;}
-  47%{opacity:.95;}
-  60%{opacity:.7;}
-}
-
-/* ---------- Productivity gauge needle ---------- */
-/* Positioned over the brass gauge on the right of the artwork */
-.gauge{
-  bottom:20.5%; left:90.3%;
-  width:7%;
-  transform-origin:center;
-}
-.gauge .needle-wrap{
-  position:relative;width:100%;padding-bottom:100%;
-}
-.gauge .needle{
-  position:absolute;left:50%;bottom:50%;
-  width:3px;height:38%;
-  background:linear-gradient(180deg,#e8557d,#9a1f3a);
-  border-radius:2px;
-  transform-origin:bottom center;
-  transform:rotate(-60deg);
-  box-shadow:0 0 6px rgba(232,85,125,.7);
-  transition:transform .6s cubic-bezier(.34,1.4,.5,1);
-}
-.gauge .hub{
-  position:absolute;left:50%;bottom:50%;
-  width:9px;height:9px;border-radius:50%;
-  background:radial-gradient(circle,#f0d488,var(--brass-deep));
-  transform:translate(-50%,50%);
-}
-
-/* ---------- Flip-clock countdown over the sign board ---------- */
-.console{
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:min(720px,72vw);
-  text-align:center;
-  pointer-events:none;
-}
-.kicker{
-  font-family:'Special Elite',monospace;
-  letter-spacing:.28em;text-transform:uppercase;
-  font-size:clamp(.6rem,1.3vw,.85rem);
-  color:var(--brass);
-  margin-bottom:.4em;
-}
-.kicker::before,.kicker::after{content:"\2766";margin:0 .6em;color:var(--brass-deep);}
-.headline{
-  font-family:'Cinzel Decorative',serif;font-weight:900;
-  line-height:.92;margin-bottom:.5em;
-}
-.headline .small{
-  display:block;font-size:clamp(1rem,2.4vw,1.7rem);color:var(--cream);
-  letter-spacing:.04em;
-}
-.headline .big{
-  display:block;font-size:clamp(2.4rem,7vw,4.6rem);color:var(--rose);
-  text-shadow:0 3px 0 #5b0f22,0 0 24px rgba(232,85,125,.35);
-}
-.headline .big::before{content:"\276E  ";color:var(--rose);opacity:.7;font-size:.5em;vertical-align:middle;}
-.headline .big::after{content:"  \276F";color:var(--rose);opacity:.7;font-size:.5em;vertical-align:middle;}
-
-/* flip clock */
-.clock{display:flex;justify-content:center;gap:clamp(8px,1.6vw,18px);margin:.4em 0 .6em;}
-.cell{display:flex;flex-direction:column;align-items:center;}
-.flip{
-  position:relative;
-  font-family:'Special Elite',monospace;
-  font-size:clamp(1.8rem,5.2vw,3.6rem);
-  font-weight:700;color:#f6f1e4;
-  background:linear-gradient(180deg,#2c2620 0%,#15110c 49%,#0c0907 51%,#1c1712 100%);
-  border:1px solid #000;border-radius:8px;
-  padding:.12em .26em;min-width:1.7em;
-  box-shadow:0 4px 10px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
-  text-shadow:0 2px 3px rgba(0,0,0,.8);
-}
-/* hinge line across the middle */
-.flip::after{
-  content:"";position:absolute;left:6%;right:6%;top:50%;height:1px;
-  background:rgba(0,0,0,.85);box-shadow:0 1px 0 rgba(255,255,255,.05);
-}
-.cell .lbl{
-  margin-top:.5em;
-  font-family:'Special Elite',monospace;
-  text-transform:uppercase;letter-spacing:.18em;
-  font-size:clamp(.5rem,1.1vw,.7rem);color:var(--cream);opacity:.8;
-}
-.sub{
-  font-family:'Special Elite',monospace;
-  font-size:clamp(.7rem,1.5vw,.95rem);color:var(--cream);opacity:.85;
-  letter-spacing:.04em;margin-top:.3em;
-}
-.sub .heart{color:var(--rose);}
-
-/* tick pop when a digit changes */
-.flip.tick{animation:tick .25s ease;}
-@keyframes tick{0%{transform:translateY(-3px) scaleY(.96);}100%{transform:none;}}
-
-/* ===== Tarte time! ===== */
-body.tarte .headline .small{opacity:0;height:0;margin:0;}
-body.tarte .clock,body.tarte .console .sub{display:none;}
-body.tarte .console{animation:pulse 1.1s ease-in-out infinite;}
-@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.04);}}
-
-.celebrate{display:none;margin-top:.3em;}
-body.tarte .celebrate{display:block;}
-.tarte-row{font-size:clamp(2rem,6vw,3.4rem);line-height:1;margin-top:.3em;}
-.tarte-row span{display:inline-block;animation:bounce 1s ease-in-out infinite;}
-.tarte-row span:nth-child(2){animation-delay:.12s;}
-.tarte-row span:nth-child(3){animation-delay:.24s;}
-.tarte-row span:nth-child(4){animation-delay:.36s;}
-.tarte-row span:nth-child(5){animation-delay:.48s;}
-@keyframes bounce{0%,100%{transform:translateY(0) rotate(-6deg);}50%{transform:translateY(-16px) rotate(6deg);}}
-
-/* ===== Closed for the day ===== */
-body.closed-day .clock,body.closed-day .console .sub,body.closed-day .headline .big{display:none;}
-.closed{display:none;}
-body.closed-day .closed{display:block;}
-body.closed-day .headline .small{font-size:clamp(1.6rem,4vw,2.6rem);color:var(--brass);}
-.closed p{font-family:'Special Elite',monospace;font-size:clamp(.8rem,1.6vw,1rem);color:var(--cream);opacity:.85;margin-top:.6em;}
-.closed p .t{color:var(--brass);}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarte Time · French Kiss Bistro</title>
+  <meta name="description" content="A funny animated countdown page for tarte time at French Kiss Bistro." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="stage">
+  <main class="scene" aria-label="Animated French bistro countdown page">
+    <div class="sky-glow"></div>
 
-  <!-- Airship -->
-  <div class="layer airship">
-    <svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="150" cy="60" rx="120" ry="42" fill="#d8c9a6" stroke="#7a6a48" stroke-width="2"/>
-      <path d="M30 60 q40 -34 120 -34 q80 0 120 34" fill="none" stroke="#9a8a64" stroke-width="2" opacity=".5"/>
-      <ellipse cx="150" cy="60" rx="120" ry="42" fill="url(#sh)"/>
-      <defs><linearGradient id="sh" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#fff" stop-opacity=".25"/>
-        <stop offset="1" stop-color="#3a2c18" stop-opacity=".3"/></linearGradient></defs>
-      <!-- fins -->
-      <path d="M258 60 l44 -16 l-2 18 Z" fill="#9a8a64"/>
-      <path d="M258 60 l44 16 l-2 -18 Z" fill="#7a6a48"/>
-      <!-- gondola -->
-      <rect x="120" y="98" width="60" height="20" rx="6" fill="#5a4a32"/>
-      <line x1="128" y1="100" x2="128" y2="118" stroke="#3a2c18" stroke-width="1.5"/>
-      <line x1="172" y1="100" x2="172" y2="118" stroke="#3a2c18" stroke-width="1.5"/>
-      <!-- banner -->
-      <path d="M10 40 q-6 14 0 28 l78 -6 q-6 -8 0 -16 Z" fill="#efe3c4" stroke="#9a8a64" stroke-width="1.5"/>
-      <text x="48" y="58" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="11" fill="#7a1f25">La tarte, c'est la vie</text>
-    </svg>
-  </div>
+    <section class="hero-card">
+      <div class="copy">
+        <p class="eyebrow">French Kiss Bistro presents</p>
+        <h1>Tarte Time</h1>
+        <p class="subtitle">
+          Synchronizing spoons, polishing tiny forks, and preparing the official
+          colleague migration to lemon, chocolate and berry tarte.
+        </p>
+      </div>
 
-  <!-- Steam -->
-  <div class="layer steam cup d1"></div>
-  <div class="layer steam cup d2"></div>
-  <div class="layer steam pipe d1"></div>
+      <div class="countdown-panel" aria-live="polite">
+        <p class="panel-label" id="statusLabel">Next tarte call in</p>
+        <div class="timer" id="timer">--:--:--</div>
+        <p class="target" id="targetText">Today at 15:00</p>
+        <button class="tarte-button" id="tarteButton" type="button">
+          Ring the tiny tarte bell
+        </button>
+        <p class="microcopy" id="microcopy">Steam pressure: pastry approved.</p>
+      </div>
+    </section>
 
-  <!-- Lamp / window glow -->
-  <div class="layer glow lamp"></div>
-  <div class="layer glow window"></div>
+    <section class="bistro-stage" aria-label="Animated bistro illustration">
+      <div class="moon-clock">
+        <span class="clock-hand clock-hour"></span>
+        <span class="clock-hand clock-minute"></span>
+      </div>
 
-  <!-- Productivity gauge needle -->
-  <div class="layer gauge">
-    <div class="needle-wrap">
-      <div class="needle" id="needle"></div>
-      <div class="hub"></div>
-    </div>
-  </div>
+      <div class="cloud cloud-one"></div>
+      <div class="cloud cloud-two"></div>
 
-  <!-- Flip-clock console over the sign board -->
-  <div class="console" id="console">
-    <div class="kicker">Prochaine alerte</div>
-    <div class="headline">
-      <span class="small">C'est l'heure de</span>
-      <span class="big">Tarte&nbsp;!</span>
-    </div>
+      <div class="lamp lamp-left">
+        <span></span>
+      </div>
+      <div class="lamp lamp-right">
+        <span></span>
+      </div>
 
-    <div class="clock" id="clock">
-      <div class="cell"><span class="flip" id="dd">00</span><span class="lbl">Jours</span></div>
-      <div class="cell"><span class="flip" id="hh">00</span><span class="lbl">Heures</span></div>
-      <div class="cell"><span class="flip" id="mm">00</span><span class="lbl">Minutes</span></div>
-      <div class="cell"><span class="flip" id="ss">00</span><span class="lbl">Secondes</span></div>
-    </div>
+      <div class="building">
+        <div class="roof">
+          <div class="gear gear-one"></div>
+          <div class="gear gear-two"></div>
+          <div class="chimney">
+            <span class="steam steam-a"></span>
+            <span class="steam steam-b"></span>
+            <span class="steam steam-c"></span>
+          </div>
+        </div>
 
-    <div class="sub">Restons productifs... jusqu'a la tarte. <span class="heart">&#10084;</span></div>
+        <div class="sign">
+          <span>French Kiss</span>
+        </div>
 
-    <div class="celebrate">
-      <div class="tarte-row"><span>&#129383;</span><span>&#129383;</span><span>&#129383;</span><span>&#129383;</span><span>&#129383;</span></div>
-      <div class="sub" style="display:block;">Forks up&nbsp;! Ca finit dans <span class="heart" id="endsClock">00:00:00</span></div>
-    </div>
+        <div class="awning">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
 
-    <div class="closed">
-      <p>La tarte est terminee pour aujourd'hui.<br>Prochaine chance demain a <span class="t">15:00</span>.</p>
-    </div>
-  </div>
+        <div class="facade">
+          <div class="window window-left">
+            <div class="shelf">
+              <span class="tarte lemon"></span>
+              <span class="tarte chocolate"></span>
+              <span class="tarte berry"></span>
+            </div>
+          </div>
+          <div class="door">
+            <span class="door-window"></span>
+            <span class="knob"></span>
+            <span class="open-sign">OPEN</span>
+          </div>
+          <div class="window window-right">
+            <div class="espresso">
+              <span class="pipe"></span>
+              <span class="gauge"></span>
+              <span class="cup"></span>
+              <span class="steam-line line-a"></span>
+              <span class="steam-line line-b"></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
+      <div class="street">
+        <div class="cobble c1"></div>
+        <div class="cobble c2"></div>
+        <div class="cobble c3"></div>
+        <div class="cobble c4"></div>
+      </div>
 
-<script>
-// ====== CONFIG ======
-const START={hour:15,minute:0};   // tarte time begins
-const END  ={hour:16,minute:30};  // tarte time ends
-// ====================
-const pad=n=>String(n).padStart(2,"0");
-const $=id=>document.getElementById(id);
+      <div class="tarte-cart">
+        <div class="cart-umbrella"></div>
+        <div class="cart-box">
+          <span class="slice slice-one"></span>
+          <span class="slice slice-two"></span>
+          <span class="slice slice-three"></span>
+        </div>
+        <div class="wheel wheel-left"></div>
+        <div class="wheel wheel-right"></div>
+      </div>
 
-function at(h,m,base){const d=new Date(base);d.setHours(h,m,0,0);return d;}
-function getState(now){
-  const s=at(START.hour,START.minute,now), e=at(END.hour,END.minute,now);
-  if(now<s) return {phase:"before",nextStart:s};
-  if(now<e) return {phase:"during",end:e,start:s};
-  return {phase:"after",nextStart:at(START.hour,START.minute,new Date(now.getTime()+864e5))};
-}
-function hms(ms){let d=Math.max(0,ms);const h=Math.floor(d/36e5);d-=h*36e5;const m=Math.floor(d/6e4);d-=m*6e4;const s=Math.floor(d/1e3);return{h,m,s};}
+      <div class="automaton">
+        <div class="hat"></div>
+        <div class="head">
+          <span class="eye"></span>
+          <span class="monocle"></span>
+          <span class="moustache"></span>
+        </div>
+        <div class="body">
+          <span class="bowtie"></span>
+          <span class="gear-small"></span>
+        </div>
+        <div class="arm arm-left"></div>
+        <div class="arm arm-right"></div>
+        <div class="leg leg-left"></div>
+        <div class="leg leg-right"></div>
+      </div>
+    </section>
 
-// flip a digit with a little tick animation when it changes
-function setFlip(el,val){
-  if(el.textContent!==val){
-    el.textContent=val;
-    el.classList.remove("tick");void el.offsetWidth;el.classList.add("tick");
-  }
-}
+    <footer>
+      <span>Powered by pastry, pressure valves and questionable scheduling.</span>
+      <span class="dot">•</span>
+      <span id="footerTime">Daily tarte time: 15:00</span>
+    </footer>
+  </main>
 
-// gauge needle: -60deg (low) at 24h+ out, +60deg (TARTE) at zero
-function setNeedle(fractionToTarte){
-  // fractionToTarte: 1 = far away, 0 = at tarte time
-  const f=Math.max(0,Math.min(1,fractionToTarte));
-  const deg=-60 + (1-f)*120;
-  $("needle").style.transform="rotate("+deg+"deg)";
-}
-
-function tick(){
-  const now=new Date();
-  const st=getState(now);
-  document.body.classList.remove("tarte","closed-day");
-
-  if(st.phase==="during"){
-    document.body.classList.add("tarte");
-    const t=hms(st.end-now);
-    $("endsClock").textContent=pad(t.h)+":"+pad(t.m)+":"+pad(t.s);
-    setNeedle(0);
-    return;
-  }
-  if(st.phase==="after"){
-    document.body.classList.add("closed-day");
-    setNeedle(1);
-    return;
-  }
-  // before
-  const diff=st.nextStart-now;
-  const t=hms(diff);
-  const days=Math.floor(diff/864e5); // essentially 0 for same-day target
-  setFlip($("dd"),pad(days));
-  setFlip($("hh"),pad(t.h - days*24));
-  setFlip($("mm"),pad(t.m));
-  setFlip($("ss"),pad(t.s));
-  // needle sweeps over the final ~6 hours
-  setNeedle(Math.min(1, diff/(6*36e5)));
-}
-tick();
-setInterval(tick,1000);
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
