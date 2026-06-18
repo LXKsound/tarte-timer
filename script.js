@@ -1,39 +1,41 @@
 const CONFIG = {
-  restaurantName: "French Kiss Bistro",
-  eventName: "Tarte Time",
   tarteHour: 15,
   tarteMinute: 0,
   celebrationMinutes: 60,
   locale: "en-GB",
   messages: [
-    "Steam pressure: pastry approved.",
-    "Tiny forks are being synchronized.",
-    "Lemon tarte morale is rising.",
-    "Chocolate tarte negotiations are open.",
-    "Berry tarte is entering the timeline.",
-    "One more gear turn until happiness.",
-    "Please keep elbows clear of the tarte portal."
+    "Stay productive until the tarte portal opens.",
+    "Steam pressure rising. Butter levels stable.",
+    "Tiny forks are being polished by the automaton.",
+    "Lemon tarte detected in the pastry timeline.",
+    "Chocolate tarte has entered the negotiation phase.",
+    "Berry tarte morale boost is almost ready.",
+    "Please keep colleagues away from the countdown gears."
   ],
-  buttonMessages: [
-    "Ding ding! Tarte protocol acknowledged.",
-    "A small pastry bell echoes through time.",
-    "Colleagues have been spiritually notified.",
-    "Fork calibration complete.",
-    "The Time Machine accepts your dessert request."
+  bellMessages: [
+    "Ding! The tarte bell has been officially notarized.",
+    "The pastry zeppelin has received your signal.",
+    "A tiny fork somewhere just saluted.",
+    "Colleague happiness pressure is increasing.",
+    "The tarte machine says: oui."
   ]
 };
 
-const timer = document.querySelector("#timer");
-const statusLabel = document.querySelector("#statusLabel");
-const targetText = document.querySelector("#targetText");
-const microcopy = document.querySelector("#microcopy");
-const footerTime = document.querySelector("#footerTime");
-const tarteButton = document.querySelector("#tarteButton");
+const els = {
+  days: document.querySelector("#days"),
+  hours: document.querySelector("#hours"),
+  minutes: document.querySelector("#minutes"),
+  seconds: document.querySelector("#seconds"),
+  status: document.querySelector("#statusText"),
+  bell: document.querySelector("#bell"),
+  colleague: document.querySelector("#colleagueButton"),
+  dailyTime: document.querySelector("#dailyTime")
+};
 
-const pad = number => String(number).padStart(2, "0");
+const pad = value => String(value).padStart(2, "0");
 
-function getTodayTarget(now = new Date()) {
-  return new Date(
+function targetForNow(now = new Date()) {
+  const today = new Date(
     now.getFullYear(),
     now.getMonth(),
     now.getDate(),
@@ -42,63 +44,71 @@ function getTodayTarget(now = new Date()) {
     0,
     0
   );
+
+  const celebrationEnd = new Date(today.getTime() + CONFIG.celebrationMinutes * 60_000);
+
+  if (now > celebrationEnd) {
+    return {
+      target: new Date(today.getTime() + 24 * 60 * 60_000),
+      isNow: false
+    };
+  }
+
+  return {
+    target: today,
+    isNow: now >= today && now <= celebrationEnd
+  };
 }
 
-function formatTargetDate(date) {
-  const formatter = new Intl.DateTimeFormat(CONFIG.locale, {
-    weekday: "long",
-    hour: "2-digit",
-    minute: "2-digit"
-  });
+function setWithTick(element, value) {
+  if (element.textContent === value) return;
 
-  return formatter.format(date);
+  element.textContent = value;
+  element.classList.remove("tick");
+  void element.offsetWidth;
+  element.classList.add("tick");
 }
 
 function updateCountdown() {
   const now = new Date();
-  const todayTarget = getTodayTarget(now);
-  const celebrationEnd = new Date(todayTarget.getTime() + CONFIG.celebrationMinutes * 60_000);
+  const { target, isNow } = targetForNow(now);
 
-  let target = todayTarget;
-
-  if (now > celebrationEnd) {
-    target = new Date(todayTarget.getTime() + 24 * 60 * 60_000);
-  }
-
-  const diff = target - now;
-  const isTarteNow = now >= todayTarget && now <= celebrationEnd;
-
-  if (isTarteNow) {
+  if (isNow) {
     document.body.classList.add("tarte-now");
-    statusLabel.textContent = "It is officially";
-    timer.textContent = "TARTE!";
-    targetText.textContent = `${CONFIG.restaurantName} needs you now.`;
-    microcopy.textContent = "Grab a slice before the pastry timeline collapses.";
+    setWithTick(els.days, "00");
+    setWithTick(els.hours, "00");
+    setWithTick(els.minutes, "00");
+    setWithTick(els.seconds, "00");
+    els.status.textContent = "TARTE TIME! Please proceed elegantly to French Kiss.";
     return;
   }
 
   document.body.classList.remove("tarte-now");
 
-  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
-  const hours = Math.floor(totalSeconds / 3600);
+  const diff = Math.max(0, target - now);
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
-  statusLabel.textContent = "Next tarte call in";
-  timer.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-
-  const targetDay = target.getDate() === now.getDate() ? "Today" : "Tomorrow";
-  targetText.textContent = `${targetDay} at ${pad(CONFIG.tarteHour)}:${pad(CONFIG.tarteMinute)}`;
+  setWithTick(els.days, pad(days));
+  setWithTick(els.hours, pad(hours));
+  setWithTick(els.minutes, pad(minutes));
+  setWithTick(els.seconds, pad(seconds));
 }
 
-function rotateMicrocopy() {
+function randomMessage(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
+
+function rotateMessage() {
   if (document.body.classList.contains("tarte-now")) return;
-  const random = CONFIG.messages[Math.floor(Math.random() * CONFIG.messages.length)];
-  microcopy.textContent = random;
+  els.status.textContent = randomMessage(CONFIG.messages);
 }
 
-function burstConfetti(amount = 34) {
-  const colors = ["#ffd66b", "#ff6f8f", "#1d7774", "#fff4d8", "#b96e33"];
+function confetti(amount = 40) {
+  const colors = ["#d55267", "#cf9a45", "#f4dfb4", "#a93b3b", "#a96236"];
 
   for (let i = 0; i < amount; i += 1) {
     const piece = document.createElement("span");
@@ -109,21 +119,23 @@ function burstConfetti(amount = 34) {
     piece.style.transform = `rotate(${Math.random() * 360}deg)`;
     document.body.append(piece);
 
-    window.setTimeout(() => piece.remove(), 2200);
+    window.setTimeout(() => piece.remove(), 2100);
   }
 }
 
-tarteButton.addEventListener("click", () => {
-  const random = CONFIG.buttonMessages[Math.floor(Math.random() * CONFIG.buttonMessages.length)];
-  microcopy.textContent = random;
-  burstConfetti();
+els.bell.addEventListener("click", () => {
+  els.status.textContent = randomMessage(CONFIG.bellMessages);
+  confetti();
 });
 
-footerTime.textContent = `Daily tarte time: ${pad(CONFIG.tarteHour)}:${pad(CONFIG.tarteMinute)}`;
-document.title = `${CONFIG.eventName} · ${CONFIG.restaurantName}`;
+els.colleague?.addEventListener("click", () => {
+  els.status.textContent = "Colleague space unlocked: please bring a fork.";
+  confetti(24);
+});
+
+els.dailyTime.textContent = `Daily tarte time: ${pad(CONFIG.tarteHour)}:${pad(CONFIG.tarteMinute)}`;
 
 updateCountdown();
-rotateMicrocopy();
-
+rotateMessage();
 window.setInterval(updateCountdown, 1000);
-window.setInterval(rotateMicrocopy, 7000);
+window.setInterval(rotateMessage, 6500);

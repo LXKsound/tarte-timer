@@ -3,137 +3,144 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tarte Time · French Kiss Bistro</title>
-  <meta name="description" content="A funny animated countdown page for tarte time at French Kiss Bistro." />
+  <title>Tarte Time · French Kiss</title>
+  <meta name="description" content="Animated steampunk French Kiss bistro tarte countdown." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="scene" aria-label="Animated French bistro countdown page">
-    <div class="sky-glow"></div>
+  <div class="page">
+    <nav class="topbar">
+      <a class="active" href="#">Home</a>
+      <a href="#">The Menu</a>
+      <a href="#">Our Tartes</a>
+      <a href="#">Team</a>
+      <a href="#">Contact</a>
+      <button id="colleagueButton" type="button">
+        <span class="mini-hat"></span>
+        Colleague Space
+      </button>
+    </nav>
 
-    <section class="hero-card">
-      <div class="copy">
-        <p class="eyebrow">French Kiss Bistro presents</p>
-        <h1>Tarte Time</h1>
-        <p class="subtitle">
-          Synchronizing spoons, polishing tiny forks, and preparing the official
-          colleague migration to lemon, chocolate and berry tarte.
-        </p>
-      </div>
+    <main class="bistro">
+      <section class="paris-side" aria-hidden="true">
+        <div class="zeppelin">
+          <span>La tarte, c’est la vie</span>
+        </div>
+        <div class="eiffel"></div>
+        <div class="side-building one"></div>
+        <div class="side-building two"></div>
+        <div class="street-sign">Rue<br>du Dessert</div>
+        <div class="chalkboard">
+          <h3>Today</h3>
+          <p>Lemon Tarte</p>
+          <p>Berry Tarte</p>
+          <p>Chocolate Tarte</p>
+          <small>Highly recommended ♥</small>
+        </div>
+      </section>
 
-      <div class="countdown-panel" aria-live="polite">
-        <p class="panel-label" id="statusLabel">Next tarte call in</p>
-        <div class="timer" id="timer">--:--:--</div>
-        <p class="target" id="targetText">Today at 15:00</p>
-        <button class="tarte-button" id="tarteButton" type="button">
-          Ring the tiny tarte bell
-        </button>
-        <p class="microcopy" id="microcopy">Steam pressure: pastry approved.</p>
-      </div>
-    </section>
-
-    <section class="bistro-stage" aria-label="Animated bistro illustration">
-      <div class="moon-clock">
-        <span class="clock-hand clock-hour"></span>
-        <span class="clock-hand clock-minute"></span>
-      </div>
-
-      <div class="cloud cloud-one"></div>
-      <div class="cloud cloud-two"></div>
-
-      <div class="lamp lamp-left">
-        <span></span>
-      </div>
-      <div class="lamp lamp-right">
-        <span></span>
-      </div>
-
-      <div class="building">
-        <div class="roof">
-          <div class="gear gear-one"></div>
-          <div class="gear gear-two"></div>
-          <div class="chimney">
-            <span class="steam steam-a"></span>
-            <span class="steam steam-b"></span>
-            <span class="steam steam-c"></span>
-          </div>
+      <section class="facade">
+        <div class="pipe pipe-top"></div>
+        <div class="pipe pipe-right"></div>
+        <div class="smoke-stack">
+          <span></span><span></span><span></span>
         </div>
 
-        <div class="sign">
-          <span>French Kiss</span>
+        <div class="brand">
+          <div class="gear gear-a"></div>
+          <div class="gear gear-b"></div>
+          <div class="gear gear-c"></div>
+          <p>Restaurant</p>
+          <h1>French Kiss</h1>
+          <p>Bistro · Patisserie · Bisous</p>
+        </div>
+
+        <div class="clock" aria-hidden="true">
+          <span class="hand hour"></span>
+          <span class="hand minute"></span>
         </div>
 
         <div class="awning">
-          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
 
-        <div class="facade">
-          <div class="window window-left">
-            <div class="shelf">
-              <span class="tarte lemon"></span>
-              <span class="tarte chocolate"></span>
-              <span class="tarte berry"></span>
+        <p class="welcome">♥ Welcome, colleagues! ♥</p>
+
+        <section class="countdown-board" aria-live="polite">
+          <div class="flourish">— Next alert —</div>
+          <h2>It’s time for <span>Tarte!</span></h2>
+
+          <div class="flip-grid" id="flipGrid">
+            <div class="flip-card">
+              <strong id="days">00</strong>
+              <span>Days</span>
+            </div>
+            <div class="flip-card">
+              <strong id="hours">00</strong>
+              <span>Hours</span>
+            </div>
+            <div class="flip-card">
+              <strong id="minutes">00</strong>
+              <span>Minutes</span>
+            </div>
+            <div class="flip-card">
+              <strong id="seconds">00</strong>
+              <span>Seconds</span>
             </div>
           </div>
-          <div class="door">
-            <span class="door-window"></span>
-            <span class="knob"></span>
-            <span class="open-sign">OPEN</span>
+
+          <p class="productive" id="statusText">
+            Stay productive until the tarte portal opens.
+          </p>
+          <button class="bell" id="bell" type="button">Ring the tiny tarte bell</button>
+        </section>
+
+        <div class="bottom-plaque">
+          <span>💋</span>
+          One tarte at a time, we change the world.
+        </div>
+
+        <div class="window round-window">
+          <div class="inner-light"></div>
+        </div>
+
+        <div class="door">
+          <div class="door-glow"></div>
+          <div class="shelves"></div>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <div class="colleague-sign">
+          A happy colleague<br>
+          is a colleague<br>
+          who eats tarte
+          <span>♥</span>
+        </div>
+        <div class="gauge">
+          <p>Productivity</p>
+          <div class="needle"></div>
+          <strong>Tarte</strong>
+        </div>
+        <div class="cafe-table">
+          <div class="steam cup-steam-a"></div>
+          <div class="steam cup-steam-b"></div>
+          <div class="cup">French<br>Kiss</div>
+          <div class="plate">
+            <div class="slice"></div>
           </div>
-          <div class="window window-right">
-            <div class="espresso">
-              <span class="pipe"></span>
-              <span class="gauge"></span>
-              <span class="cup"></span>
-              <span class="steam-line line-a"></span>
-              <span class="steam-line line-b"></span>
-            </div>
-          </div>
+          <div class="tabletop"></div>
+          <div class="chair left"></div>
+          <div class="chair right"></div>
         </div>
-      </div>
-
-      <div class="street">
-        <div class="cobble c1"></div>
-        <div class="cobble c2"></div>
-        <div class="cobble c3"></div>
-        <div class="cobble c4"></div>
-      </div>
-
-      <div class="tarte-cart">
-        <div class="cart-umbrella"></div>
-        <div class="cart-box">
-          <span class="slice slice-one"></span>
-          <span class="slice slice-two"></span>
-          <span class="slice slice-three"></span>
-        </div>
-        <div class="wheel wheel-left"></div>
-        <div class="wheel wheel-right"></div>
-      </div>
-
-      <div class="automaton">
-        <div class="hat"></div>
-        <div class="head">
-          <span class="eye"></span>
-          <span class="monocle"></span>
-          <span class="moustache"></span>
-        </div>
-        <div class="body">
-          <span class="bowtie"></span>
-          <span class="gear-small"></span>
-        </div>
-        <div class="arm arm-left"></div>
-        <div class="arm arm-right"></div>
-        <div class="leg leg-left"></div>
-        <div class="leg leg-right"></div>
-      </div>
-    </section>
+      </aside>
+    </main>
 
     <footer>
-      <span>Powered by pastry, pressure valves and questionable scheduling.</span>
-      <span class="dot">•</span>
-      <span id="footerTime">Daily tarte time: 15:00</span>
+      Made with ♥, butter and a suspicious amount of sugar.
+      <span id="dailyTime">Daily tarte time: 15:00</span>
     </footer>
-  </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
