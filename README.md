@@ -1,27 +1,29 @@
-# French Kiss Tarte Time
+# French Kiss Exact-Image Page
 
-Animated static webpage inspired by the attached steampunk French bistro image.
+This version is the closest possible match to the uploaded image.
+
+## Important
+This page uses the uploaded image itself as the visual base, so it looks essentially the same as the artwork.
 
 ## Files
-
 - `index.html`
 - `styles.css`
 - `script.js`
+- `assets/french-kiss-reference.png`
 
-## GitHub Pages
+## What it does
+- Fits the full image inside the viewport without page scrolling
+- Keeps the exact look of the uploaded artwork
+- Places a live countdown over the timer area
+- Includes an invisible button over the bell area for interaction
 
-Upload the files to your GitHub repo and enable GitHub Pages from **Settings → Pages**.
-
-## Change tarte time
-
-Open `script.js` and edit:
+## Change the tarte time
+Edit `script.js`:
 
 ```js
 tarteHour: 15,
 tarteMinute: 0,
 ```
 
-## Notes
-
-This version does not use the uploaded image as a background. It recreates the look with HTML/CSS so that the scene can animate:
-steam, clock hands, gears, flip countdown, zeppelin, lights, gauge and tarte button confetti.
+## GitHub Pages
+Upload the full folder contents to your repo and enable GitHub Pages in repository settings.
