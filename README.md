@@ -18,3 +18,22 @@ This version refines the placement again and adds dynamic text switching for:
 - `script.js`
 - `assets/background-clean.png`
 - `assets/reference-layout.png`
+
+
+## v4 micro-adjustments
+- moved the street sign further right so it reads as attached to the lamp
+- tightened the chalkboard text block so it sits more accurately on the sign
+- slightly reduced the chalkboard rotation and refined spacing on the menu lines
+
+
+## v5 timer-box centering
+- centered the countdown numbers more precisely inside the boxes
+- enabled tabular numerals for more even visual alignment
+- centered the small labels under each timer box more consistently
+
+
+## v6 right-side sign refinement
+- moved the right-side quote block left so it sits centrally inside the sign
+- reduced the font size and tightened spacing so the changing text stays inside the box
+- centered each individual line within the sign
+- slightly refined the lower productivity gauge text placement

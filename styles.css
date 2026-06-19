@@ -104,10 +104,10 @@ body {
 /* Street sign attached to lamp */
 .street-sign {
   position: absolute;
-  left: 11.48%;
-  top: 55.25%;
-  width: 4.95%;
-  height: 6.55%;
+  left: 12.15%;
+  top: 55.35%;
+  width: 4.65%;
+  height: 6.35%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,14 +191,19 @@ body {
 .count-card strong {
   width: 100%;
   aspect-ratio: 1.04 / 1;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
   color: #f0ece3;
   font-family: "Special Elite", monospace;
   font-size: clamp(15px, 3.08vw, 55px);
   line-height: 1;
-  letter-spacing: -.04em;
+  letter-spacing: 0;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(47,47,47,.95) 0 47%, rgba(14,14,14,.98) 48% 51%, rgba(44,44,44,.95) 52% 100%);
   border: 1px solid rgba(255,255,255,.14);
@@ -210,6 +215,8 @@ body {
 
 .count-card span {
   margin-top: 10%;
+  width: 100%;
+  text-align: center;
   color: #e0bf7d;
   font-size: clamp(6px, .70vw, 13px);
   font-weight: 600;
@@ -240,35 +247,35 @@ body {
 /* Chalk board text aligned onto board */
 .menu-board {
   position: absolute;
-  left: 9.55%;
-  top: 71.0%;
-  width: 8.65%;
-  height: 19.9%;
-  padding: 1.8% .8% 1.1%;
+  left: 10.15%;
+  top: 70.75%;
+  width: 8.05%;
+  height: 19.1%;
+  padding: 1.35% .55% .95%;
   display: flex;
   flex-direction: column;
   color: rgba(237,231,218,.93);
   font-family: "Special Elite", serif;
   text-align: left;
-  transform: rotate(-4.2deg);
+  transform: rotate(-3.55deg);
 }
 
 .menu-title {
   text-align: center;
-  font-size: clamp(6px, .76vw, 13px);
+  font-size: clamp(6px, .72vw, 12px);
   letter-spacing: .04em;
   text-transform: uppercase;
-  margin-bottom: 7.3%;
+  margin: 0 0 6.5%;
 }
 
 .menu-item {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: end;
-  gap: .12em;
-  margin: 8.1% 0 0;
-  font-size: clamp(7px, .77vw, 13px);
-  line-height: 1.16;
+  gap: .10em;
+  margin: 7.2% 0 0;
+  font-size: clamp(7px, .73vw, 12px);
+  line-height: 1.12;
 }
 
 .menu-item span { display: block; }
@@ -280,9 +287,9 @@ body {
 }
 
 .menu-note {
-  margin-top: 10.5%;
-  font-size: clamp(6px, .68vw, 12px);
-  line-height: 1.1;
+  margin-top: 8.5%;
+  font-size: clamp(6px, .63vw, 11px);
+  line-height: 1.08;
   text-align: left;
 }
 
@@ -290,31 +297,33 @@ body {
   margin-top: auto;
   align-self: center;
   color: #cb5c63;
-  font-size: clamp(7px, .76vw, 13px);
+  font-size: clamp(7px, .72vw, 12px);
 }
 
 /* Right sign dynamic text */
 .right-quote {
   position: absolute;
-  left: 90.32%;
-  top: 41.4%;
-  width: 5.92%;
-  height: 17.25%;
+  left: 89.72%;
+  top: 41.55%;
+  width: 6.65%;
+  height: 17.45%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.6%;
+  gap: 1.15%;
   color: #301f16;
-  font-size: clamp(7px, .84vw, 15px);
+  font-size: clamp(6px, .73vw, 13px);
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  line-height: 1.13;
-  padding: 0 .15em;
+  line-height: 1.10;
+  padding: 0 .35em;
 }
 
 .right-line {
+  width: 100%;
+  text-align: center;
   transition: opacity .35s ease, transform .35s ease;
 }
 .right-quote.fade .right-line,
@@ -324,26 +333,26 @@ body {
 }
 
 .right-heart {
-  margin-top: 1.5%;
+  margin-top: 1.2%;
   font-style: normal;
   color: #bf555f;
-  font-size: 1em;
+  font-size: .95em;
 }
 
 /* Gauge copy */
 .gauge-copy {
   position: absolute;
-  left: 90.05%;
-  top: 67.15%;
-  width: 6.25%;
-  height: 6.65%;
+  left: 89.98%;
+  top: 67.28%;
+  width: 6.35%;
+  height: 6.55%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   color: #d0a15f;
-  font-size: clamp(6px, .66vw, 12px);
+  font-size: clamp(5px, .61vw, 11px);
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -352,8 +361,8 @@ body {
 .gauge-bottom {
   color: #432718;
   position: absolute;
-  left: 35%;
-  top: 41%;
+  left: 36%;
+  top: 42%;
   transform: translateX(-50%) rotate(-5deg);
 }
 
