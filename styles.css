@@ -104,10 +104,10 @@ body {
 /* Street sign attached to lamp */
 .street-sign {
   position: absolute;
-  left: 12.15%;
-  top: 55.35%;
-  width: 4.65%;
-  height: 6.35%;
+  left: 12.55%;
+  top: 55.55%;
+  width: 4.35%;
+  height: 6.15%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,78 +247,80 @@ body {
 /* Chalk board text aligned onto board */
 .menu-board {
   position: absolute;
-  left: 10.15%;
-  top: 70.75%;
-  width: 8.05%;
-  height: 19.1%;
-  padding: 1.35% .55% .95%;
+  left: 8.85%;
+  top: 69.65%;
+  width: 12.55%;
+  height: 22.9%;
+  padding: 2.4% 1.4% 1.25%;
   display: flex;
   flex-direction: column;
-  color: rgba(237,231,218,.93);
+  color: rgba(237,231,218,.94);
   font-family: "Special Elite", serif;
-  text-align: left;
-  transform: rotate(-3.55deg);
+  text-align: center;
+  transform: rotate(-3.65deg);
+  transform-origin: center center;
 }
 
 .menu-title {
-  text-align: center;
-  font-size: clamp(6px, .72vw, 12px);
-  letter-spacing: .04em;
+  font-size: clamp(7px, .95vw, 17px);
+  letter-spacing: .035em;
   text-transform: uppercase;
-  margin: 0 0 6.5%;
+  margin: 0 0 9%;
 }
 
-.menu-item {
+.menu-list {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: .10em;
-  margin: 7.2% 0 0;
-  font-size: clamp(7px, .73vw, 12px);
+  gap: 9%;
+  justify-items: center;
+  align-content: start;
+  font-size: clamp(8px, .92vw, 16px);
   line-height: 1.12;
 }
 
-.menu-item span { display: block; }
+.menu-list div {
+  width: 100%;
+  text-align: center;
+}
 
-.menu-item i {
-  font-style: normal;
-  font-size: .78em;
-  align-self: center;
+.menu-list span {
+  font-size: .82em;
+  margin-left: .12em;
 }
 
 .menu-note {
-  margin-top: 8.5%;
-  font-size: clamp(6px, .63vw, 11px);
+  margin-top: auto;
+  font-size: clamp(6px, .75vw, 13px);
   line-height: 1.08;
-  text-align: left;
+  text-align: center;
 }
 
 .menu-heart {
-  margin-top: auto;
+  margin-top: 3%;
   align-self: center;
   color: #cb5c63;
-  font-size: clamp(7px, .72vw, 12px);
+  font-size: clamp(7px, .76vw, 13px);
 }
 
 /* Right sign dynamic text */
 .right-quote {
   position: absolute;
-  left: 89.72%;
-  top: 41.55%;
-  width: 6.65%;
-  height: 17.45%;
+  left: 87.95%;
+  top: 41.05%;
+  width: 7.9%;
+  height: 17.95%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.15%;
+  gap: 1.25%;
   color: #301f16;
-  font-size: clamp(6px, .73vw, 13px);
+  font-size: clamp(6px, .69vw, 12px);
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  line-height: 1.10;
-  padding: 0 .35em;
+  line-height: 1.08;
+  padding: 0 .85em;
 }
 
 .right-line {
@@ -326,6 +328,7 @@ body {
   text-align: center;
   transition: opacity .35s ease, transform .35s ease;
 }
+
 .right-quote.fade .right-line,
 .plaque.fade #plaqueText {
   opacity: .35;
@@ -342,46 +345,46 @@ body {
 /* Gauge copy */
 .gauge-copy {
   position: absolute;
-  left: 89.98%;
-  top: 67.28%;
-  width: 6.35%;
-  height: 6.55%;
+  left: 88.35%;
+  top: 67.0%;
+  width: 7.2%;
+  height: 7.15%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   color: #d0a15f;
-  font-size: clamp(5px, .61vw, 11px);
+  font-size: clamp(5px, .56vw, 10px);
   font-weight: 600;
-  letter-spacing: .04em;
+  letter-spacing: .035em;
   text-transform: uppercase;
 }
 
 .gauge-bottom {
   color: #432718;
   position: absolute;
-  left: 36%;
-  top: 42%;
+  left: 48%;
+  top: 47%;
   transform: translateX(-50%) rotate(-5deg);
 }
 
 /* Bottom plaque dynamic */
 .plaque {
   position: absolute;
-  left: 34.78%;
-  top: 80.95%;
-  width: 21.1%;
-  height: 7.25%;
+  left: 34.85%;
+  top: 80.52%;
+  width: 20.85%;
+  height: 7.15%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4%;
   color: #f1e0b8;
   text-align: center;
-  font-size: clamp(8px, .90vw, 16px);
+  font-size: clamp(7px, .82vw, 15px);
   font-weight: 600;
-  letter-spacing: .04em;
+  letter-spacing: .035em;
   text-transform: uppercase;
   line-height: 1.08;
 }
@@ -412,12 +415,12 @@ body {
 /* Footer */
 .footer-copy {
   position: absolute;
-  left: 33.65%;
-  top: 95.4%;
-  width: 31.0%;
+  left: 34.0%;
+  top: 95.35%;
+  width: 30.0%;
   text-align: center;
   color: #f1dfba;
-  font-size: clamp(6px, .67vw, 12px);
+  font-size: clamp(5px, .60vw, 11px);
   font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;

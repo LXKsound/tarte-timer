@@ -37,3 +37,13 @@ This version refines the placement again and adds dynamic text switching for:
 - reduced the font size and tightened spacing so the changing text stays inside the box
 - centered each individual line within the sign
 - slightly refined the lower productivity gauge text placement
+
+
+## v7 alignment correction
+This version is a stronger layout correction based on the full screenshot:
+- rebuilt the chalkboard menu as one centered block instead of separate columns
+- moved the chalkboard text to the actual board surface and adjusted angle
+- moved the right-side sign text block left and centered it in the paper sign
+- refined the lower gauge text placement
+- slightly refined bottom plaque and footer positioning
+- nudged the street sign again toward the lamp
