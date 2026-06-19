@@ -1,12 +1,16 @@
-# French Kiss Recreated HTML Overlay v2
+# French Kiss Recreated HTML Overlay v3
 
-This version removes the top navigation buttons and tightens the text placement based on the browser screenshot.
+This version refines the placement again and adds dynamic text switching for:
+- the bottom center plaque
+- the right-side sign
 
 ## What changed
-- removed the navigation buttons at the top
-- refined the placement of the recreated text overlays
-- adjusted the chalkboard, right-side sign, gauge text, plaque, and footer alignment
-- kept the live countdown timer
+- zeppelin text angle corrected
+- street sign rebuilt as an actual sign attached near the lamp
+- chalkboard menu position and angle tightened
+- refined placement of multiple text elements
+- dynamic rotating text for the right-side sign
+- dynamic rotating text for the bottom center plaque
 
 ## Files
 - `index.html`

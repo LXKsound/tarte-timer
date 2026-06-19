@@ -1,7 +1,17 @@
 const CONFIG = {
   tarteHour: 15,
   tarteMinute: 0,
-  celebrationMinutes: 60
+  celebrationMinutes: 60,
+  rightMessages: [
+    ["A HAPPY", "COLLEAGUE", "=", "A COLLEAGUE", "WHO EATS", "TARTE"],
+    ["TEAM JOY", "=", "A SLICE", "OF TARTE", "AND A", "SMILE"],
+    ["GOOD MOOD", "COMES WITH", "BUTTER", "SUGAR", "AND A", "FORK"]
+  ],
+  plaqueMessages: [
+    "ONE TARTE AT A TIME,<br>WE CHANGE THE WORLD.",
+    "A SMALL SLICE,<br>A GREAT DAY.",
+    "TEAM SPIRIT RISES<br>WITH EVERY TARTE."
+  ]
 };
 
 const els = {
@@ -9,7 +19,18 @@ const els = {
   hours: document.getElementById("hours"),
   minutes: document.getElementById("minutes"),
   seconds: document.getElementById("seconds"),
-  boardFooter: document.getElementById("boardFooter")
+  boardFooter: document.getElementById("boardFooter"),
+  plaque: document.querySelector(".plaque"),
+  plaqueText: document.getElementById("plaqueText"),
+  rightQuote: document.querySelector(".right-quote"),
+  right: [
+    document.getElementById("right1"),
+    document.getElementById("right2"),
+    document.getElementById("right3"),
+    document.getElementById("right4"),
+    document.getElementById("right5"),
+    document.getElementById("right6")
+  ]
 };
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -24,13 +45,11 @@ function getTarget(now = new Date()) {
     0,
     0
   );
-
   const celebrationEnd = new Date(today.getTime() + CONFIG.celebrationMinutes * 60 * 1000);
 
   if (now > celebrationEnd) {
     return { target: new Date(today.getTime() + 24 * 60 * 60 * 1000), isNow: false };
   }
-
   return { target: today, isNow: now >= today && now <= celebrationEnd };
 }
 
@@ -65,5 +84,22 @@ function updateCountdown() {
   els.boardFooter.textContent = "LET’S STAY PRODUCTIVE… UNTIL TARTE.";
 }
 
+let msgIndex = 0;
+function rotateDynamicSigns() {
+  els.rightQuote.classList.add("fade");
+  els.plaque.classList.add("fade");
+
+  setTimeout(() => {
+    const right = CONFIG.rightMessages[msgIndex % CONFIG.rightMessages.length];
+    els.right.forEach((el, i) => { el.textContent = right[i] || ""; });
+    els.plaqueText.innerHTML = CONFIG.plaqueMessages[msgIndex % CONFIG.plaqueMessages.length];
+    els.rightQuote.classList.remove("fade");
+    els.plaque.classList.remove("fade");
+    msgIndex += 1;
+  }, 220);
+}
+
 updateCountdown();
+rotateDynamicSigns();
 setInterval(updateCountdown, 1000);
+setInterval(rotateDynamicSigns, 5000);

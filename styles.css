@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   margin: 0;
@@ -43,45 +41,46 @@ body {
   -webkit-user-drag: none;
 }
 
-/* Airship */
+/* Zeppelin slogan */
 .zeppelin-copy {
   position: absolute;
-  left: 9.1%;
-  top: 8.7%;
-  width: 12.2%;
+  left: 7.7%;
+  top: 10.55%;
+  width: 13.0%;
   text-align: center;
-  color: #432718;
-  font-size: clamp(8px, .98vw, 17px);
+  color: #43281a;
+  font-size: clamp(8px, .96vw, 17px);
   font-weight: 600;
   text-transform: uppercase;
-  transform: rotate(-2.4deg);
+  transform: rotate(3.4deg);
   letter-spacing: .01em;
-  text-shadow: 0 1px 0 rgba(255,255,255,.26);
+  line-height: 1.08;
+  text-shadow: 0 1px 0 rgba(255,255,255,.22);
 }
-.zeppelin-copy span { color: #ca5f63; }
+.zeppelin-copy span { color: #c95d63; }
 
-/* Main sign */
+/* Main restaurant sign */
 .sign-top {
   position: absolute;
-  left: 43.9%;
-  top: 10.4%;
-  width: 14.6%;
+  left: 44.05%;
+  top: 10.6%;
+  width: 14.2%;
   text-align: center;
   color: #69472a;
-  font-size: clamp(11px, 1.46vw, 27px);
+  font-size: clamp(11px, 1.42vw, 26px);
   font-weight: 600;
-  letter-spacing: .08em;
+  letter-spacing: .09em;
   text-transform: uppercase;
 }
 
 .sign-bottom {
   position: absolute;
-  left: 40.8%;
-  top: 25.0%;
-  width: 20.7%;
+  left: 40.9%;
+  top: 25.05%;
+  width: 20.4%;
   text-align: center;
   color: #6d4a2d;
-  font-size: clamp(8px, 1.0vw, 18px);
+  font-size: clamp(8px, .98vw, 18px);
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -90,46 +89,50 @@ body {
 /* Awning banner */
 .awning-copy {
   position: absolute;
-  left: 35.2%;
-  top: 35.3%;
-  width: 31.0%;
+  left: 35.35%;
+  top: 35.35%;
+  width: 30.85%;
   text-align: center;
   color: #f3dfb3;
-  font-size: clamp(8px, 1.08vw, 20px);
+  font-size: clamp(8px, 1.06vw, 19px);
   font-weight: 600;
-  letter-spacing: .14em;
+  letter-spacing: .15em;
   text-transform: uppercase;
   text-shadow: 0 1px 2px rgba(0,0,0,.85);
 }
 
-/* Street sign */
+/* Street sign attached to lamp */
 .street-sign {
   position: absolute;
-  left: 12.08%;
-  top: 56.15%;
-  width: 5.4%;
-  height: 7.4%;
+  left: 11.48%;
+  top: 55.25%;
+  width: 4.95%;
+  height: 6.55%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .12em;
-  color: #f3e4be;
-  font-size: clamp(6px, .69vw, 13px);
+  gap: .10em;
+  color: #f3e5bf;
+  background: rgba(16, 26, 42, .96);
+  border: 2px solid #ac8351;
+  border-radius: .18em;
+  font-size: clamp(6px, .60vw, 11px);
   font-weight: 600;
-  letter-spacing: .03em;
+  letter-spacing: .02em;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0,0,0,.88);
+  text-shadow: 0 1px 2px rgba(0,0,0,.9);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 2px 4px rgba(0,0,0,.35);
 }
 
 /* Main board */
 .board {
   position: absolute;
-  left: 35.0%;
-  top: 39.9%;
+  left: 35.08%;
+  top: 39.98%;
   width: 31.0%;
-  height: 36.6%;
+  height: 36.55%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,9 +140,9 @@ body {
 }
 
 .board-kicker {
-  margin-top: 3.1%;
+  margin-top: 3.0%;
   color: #cea45f;
-  font-size: clamp(7px, .88vw, 16px);
+  font-size: clamp(7px, .86vw, 16px);
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -147,7 +150,7 @@ body {
 }
 
 .board-title {
-  margin-top: 4.8%;
+  margin-top: 4.75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,7 +159,7 @@ body {
 
 .line-one {
   color: #f0deb5;
-  font-size: clamp(16px, 2.33vw, 42px);
+  font-size: clamp(16px, 2.28vw, 41px);
   font-weight: 700;
   letter-spacing: .03em;
   text-shadow: 0 2px 4px rgba(0,0,0,.82);
@@ -165,7 +168,7 @@ body {
 .line-two {
   margin-top: 3.2%;
   color: #d9666d;
-  font-size: clamp(33px, 4.36vw, 78px);
+  font-size: clamp(33px, 4.34vw, 77px);
   font-weight: 700;
   letter-spacing: .01em;
   text-shadow: 0 2px 4px rgba(0,0,0,.82);
@@ -173,10 +176,10 @@ body {
 
 .countdown {
   width: 80%;
-  margin-top: 8.4%;
+  margin-top: 8.55%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4.6%;
+  gap: 4.7%;
 }
 
 .count-card {
@@ -192,30 +195,23 @@ body {
   place-items: center;
   color: #f0ece3;
   font-family: "Special Elite", monospace;
-  font-size: clamp(15px, 3.1vw, 56px);
+  font-size: clamp(15px, 3.08vw, 55px);
   line-height: 1;
   letter-spacing: -.04em;
   font-weight: 400;
   border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(47,47,47,.95) 0 47%, rgba(14,14,14,.98) 48% 51%, rgba(44,44,44,.95) 52% 100%);
+  background: linear-gradient(180deg, rgba(47,47,47,.95) 0 47%, rgba(14,14,14,.98) 48% 51%, rgba(44,44,44,.95) 52% 100%);
   border: 1px solid rgba(255,255,255,.14);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.12),
-    0 2px 7px rgba(0,0,0,.55);
-  text-shadow:
-    0 1px 1px rgba(0,0,0,.95),
-    0 2px 3px rgba(0,0,0,.9);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 2px 7px rgba(0,0,0,.55);
+  text-shadow: 0 1px 1px rgba(0,0,0,.95), 0 2px 3px rgba(0,0,0,.9);
 }
 
-.count-card strong.tick {
-  animation: flipTick .3s ease;
-}
+.count-card strong.tick { animation: flipTick .3s ease; }
 
 .count-card span {
   margin-top: 10%;
   color: #e0bf7d;
-  font-size: clamp(6px, .71vw, 13px);
+  font-size: clamp(6px, .70vw, 13px);
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -223,9 +219,9 @@ body {
 
 .board-footer {
   margin-top: auto;
-  margin-bottom: 5.4%;
+  margin-bottom: 5.3%;
   color: #f0d8a0;
-  font-size: clamp(8px, .92vw, 17px);
+  font-size: clamp(8px, .90vw, 16px);
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -235,103 +231,119 @@ body {
 .board-heart {
   position: absolute;
   left: 50%;
-  bottom: 2.7%;
+  bottom: 2.8%;
   transform: translateX(-50%);
   color: #d45f68;
-  font-size: clamp(9px, 1vw, 18px);
+  font-size: clamp(9px, .98vw, 18px);
 }
 
-/* Chalk board */
+/* Chalk board text aligned onto board */
 .menu-board {
   position: absolute;
-  left: 10.65%;
-  top: 70.8%;
-  width: 10.6%;
-  height: 21.2%;
-  padding: 1.8% 1.0% 1.2%;
+  left: 9.55%;
+  top: 71.0%;
+  width: 8.65%;
+  height: 19.9%;
+  padding: 1.8% .8% 1.1%;
   display: flex;
   flex-direction: column;
-  color: rgba(237,231,218,.92);
+  color: rgba(237,231,218,.93);
   font-family: "Special Elite", serif;
   text-align: left;
-  transform: rotate(-3.2deg);
+  transform: rotate(-4.2deg);
 }
 
 .menu-title {
   text-align: center;
-  font-size: clamp(7px, .84vw, 15px);
+  font-size: clamp(6px, .76vw, 13px);
   letter-spacing: .04em;
   text-transform: uppercase;
-  margin-bottom: 8%;
+  margin-bottom: 7.3%;
 }
 
 .menu-item {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: end;
-  gap: .15em;
-  margin: 8.5% 0 0;
-  font-size: clamp(8px, .85vw, 15px);
-  line-height: 1.18;
+  gap: .12em;
+  margin: 8.1% 0 0;
+  font-size: clamp(7px, .77vw, 13px);
+  line-height: 1.16;
 }
+
 .menu-item span { display: block; }
+
 .menu-item i {
   font-style: normal;
-  font-size: .82em;
+  font-size: .78em;
   align-self: center;
 }
 
 .menu-note {
-  margin-top: 11%;
-  font-size: clamp(7px, .74vw, 13px);
-  line-height: 1.15;
+  margin-top: 10.5%;
+  font-size: clamp(6px, .68vw, 12px);
+  line-height: 1.1;
   text-align: left;
 }
+
 .menu-heart {
   margin-top: auto;
   align-self: center;
   color: #cb5c63;
-  font-size: clamp(8px, .8vw, 14px);
+  font-size: clamp(7px, .76vw, 13px);
 }
 
-/* Right quote */
+/* Right sign dynamic text */
 .right-quote {
   position: absolute;
-  left: 90.5%;
-  top: 41.6%;
-  width: 5.5%;
-  height: 17.2%;
+  left: 90.32%;
+  top: 41.4%;
+  width: 5.92%;
+  height: 17.25%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.6%;
+  gap: 1.6%;
   color: #301f16;
-  font-size: clamp(7px, .86vw, 15px);
+  font-size: clamp(7px, .84vw, 15px);
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  line-height: 1.15;
+  line-height: 1.13;
+  padding: 0 .15em;
 }
-.right-quote i {
+
+.right-line {
+  transition: opacity .35s ease, transform .35s ease;
+}
+.right-quote.fade .right-line,
+.plaque.fade #plaqueText {
+  opacity: .35;
+  transform: translateY(2px);
+}
+
+.right-heart {
+  margin-top: 1.5%;
   font-style: normal;
   color: #bf555f;
+  font-size: 1em;
 }
 
 /* Gauge copy */
 .gauge-copy {
   position: absolute;
-  left: 89.95%;
-  top: 67.2%;
-  width: 6.4%;
-  height: 6.8%;
+  left: 90.05%;
+  top: 67.15%;
+  width: 6.25%;
+  height: 6.65%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   color: #d0a15f;
-  font-size: clamp(6px, .68vw, 12px);
+  font-size: clamp(6px, .66vw, 12px);
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -345,20 +357,20 @@ body {
   transform: translateX(-50%) rotate(-5deg);
 }
 
-/* Bottom plaque */
+/* Bottom plaque dynamic */
 .plaque {
   position: absolute;
-  left: 34.75%;
-  top: 81.0%;
-  width: 21.0%;
-  height: 7.2%;
+  left: 34.78%;
+  top: 80.95%;
+  width: 21.1%;
+  height: 7.25%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4%;
   color: #f1e0b8;
   text-align: center;
-  font-size: clamp(8px, .92vw, 16px);
+  font-size: clamp(8px, .90vw, 16px);
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -368,16 +380,19 @@ body {
   color: #d85f6a;
   font-size: 1.08em;
 }
+#plaqueText {
+  transition: opacity .35s ease, transform .35s ease;
+}
 
 /* Cup text */
 .cup-copy {
   position: absolute;
-  left: 79.55%;
-  top: 84.25%;
+  left: 79.6%;
+  top: 84.28%;
   width: 3.8%;
   text-align: center;
   color: #64452d;
-  font-size: clamp(5px, .58vw, 10px);
+  font-size: clamp(5px, .57vw, 10px);
   font-weight: 600;
   letter-spacing: .04em;
   line-height: 1.18;
@@ -388,12 +403,12 @@ body {
 /* Footer */
 .footer-copy {
   position: absolute;
-  left: 33.6%;
-  top: 95.35%;
-  width: 31.2%;
+  left: 33.65%;
+  top: 95.4%;
+  width: 31.0%;
   text-align: center;
   color: #f1dfba;
-  font-size: clamp(6px, .68vw, 12px);
+  font-size: clamp(6px, .67vw, 12px);
   font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;
@@ -409,12 +424,10 @@ body {
 
 @media (max-width: 900px) {
   .app { padding: 5px; }
-
   .scene {
     width: min(calc((100vh - 10px) * 1.4), calc(100vw - 10px));
     max-height: calc(100vh - 10px);
   }
-
   .line-one { font-size: clamp(10px, 2vw, 24px); }
   .line-two { font-size: clamp(19px, 3.6vw, 40px); }
   .count-card strong { font-size: clamp(10px, 2.8vw, 30px); }
@@ -422,12 +435,10 @@ body {
 
 @media (max-width: 560px) {
   .app { padding: 4px; }
-
   .scene {
     width: min(calc((100vh - 8px) * 1.4), calc(100vw - 8px));
     max-height: calc(100vh - 8px);
   }
-
   .line-one { font-size: clamp(7px, 1.65vw, 13px); }
   .line-two { font-size: clamp(12px, 2.85vw, 23px); }
   .count-card strong { font-size: clamp(7px, 2.45vw, 16px); }
