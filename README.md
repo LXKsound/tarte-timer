@@ -1,28 +1,16 @@
-# French Kiss Recreated HTML Overlay
+# French Kiss Recreated HTML Overlay v2
 
-This version uses the **clean background image** and rebuilds the removed text fields with HTML/CSS so they match the reference image as closely as possible.
+This version removes the top navigation buttons and tightens the text placement based on the browser screenshot.
 
-## Source images
-- `assets/background-clean.png` → cleaned base image with removed text fields
-- `assets/reference-layout.png` → reference image used to match placement, angle, and styling
+## What changed
+- removed the navigation buttons at the top
+- refined the placement of the recreated text overlays
+- adjusted the chalkboard, right-side sign, gauge text, plaque, and footer alignment
+- kept the live countdown timer
 
-## Included
-- recreated top navigation
-- recreated zeppelin slogan
-- recreated sign texts
-- recreated awning banner
-- recreated main countdown board with live timer
-- recreated chalkboard menu
-- recreated right-side quote and gauge labels
-- recreated bottom plaque, cup text, and footer
-
-## Change tarte time
-Edit `script.js`:
-
-```js
-tarteHour: 15,
-tarteMinute: 0,
-```
-
-## Hosting
-Upload the full folder contents to your GitHub repo and enable GitHub Pages.
+## Files
+- `index.html`
+- `styles.css`
+- `script.js`
+- `assets/background-clean.png`
+- `assets/reference-layout.png`
