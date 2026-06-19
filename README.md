@@ -47,3 +47,10 @@ This version is a stronger layout correction based on the full screenshot:
 - refined the lower gauge text placement
 - slightly refined bottom plaque and footer positioning
 - nudged the street sign again toward the lamp
+
+
+## v8 chalkboard correction
+- narrowed the chalkboard text block
+- moved it right onto the actual black panel
+- reduced rotation and text size
+- tightened spacing so all menu text stays inside the frame

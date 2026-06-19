@@ -247,59 +247,60 @@ body {
 /* Chalk board text aligned onto board */
 .menu-board {
   position: absolute;
-  left: 8.85%;
-  top: 69.65%;
-  width: 12.55%;
-  height: 22.9%;
-  padding: 2.4% 1.4% 1.25%;
+  left: 10.25%;
+  top: 71.15%;
+  width: 8.95%;
+  height: 18.9%;
+  padding: 1.35% .55% .95%;
   display: flex;
   flex-direction: column;
   color: rgba(237,231,218,.94);
   font-family: "Special Elite", serif;
   text-align: center;
-  transform: rotate(-3.65deg);
+  transform: rotate(-3.25deg);
   transform-origin: center center;
 }
 
 .menu-title {
-  font-size: clamp(7px, .95vw, 17px);
-  letter-spacing: .035em;
+  font-size: clamp(6px, .72vw, 12px);
+  letter-spacing: .03em;
   text-transform: uppercase;
-  margin: 0 0 9%;
+  margin: 0 0 8%;
 }
 
 .menu-list {
   width: 100%;
   display: grid;
-  gap: 9%;
+  gap: 7.5%;
   justify-items: center;
   align-content: start;
-  font-size: clamp(8px, .92vw, 16px);
-  line-height: 1.12;
+  font-size: clamp(7px, .76vw, 13px);
+  line-height: 1.08;
 }
 
 .menu-list div {
   width: 100%;
   text-align: center;
+  white-space: nowrap;
 }
 
 .menu-list span {
-  font-size: .82em;
-  margin-left: .12em;
+  font-size: .8em;
+  margin-left: .08em;
 }
 
 .menu-note {
   margin-top: auto;
-  font-size: clamp(6px, .75vw, 13px);
-  line-height: 1.08;
+  font-size: clamp(6px, .62vw, 11px);
+  line-height: 1.06;
   text-align: center;
 }
 
 .menu-heart {
-  margin-top: 3%;
+  margin-top: 2.2%;
   align-self: center;
   color: #cb5c63;
-  font-size: clamp(7px, .76vw, 13px);
+  font-size: clamp(6px, .66vw, 11px);
 }
 
 /* Right sign dynamic text */
