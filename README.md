@@ -54,3 +54,10 @@ This version is a stronger layout correction based on the full screenshot:
 - moved it right onto the actual black panel
 - reduced rotation and text size
 - tightened spacing so all menu text stays inside the frame
+
+
+## v9 chalkboard and street-sign correction
+- moved the chalkboard text block further right onto the visible black panel
+- slightly reduced its size and rotation so it sits inside the board frame
+- moved the street sign further right
+- widened the street sign and reduced its text size so the text stays within the border
